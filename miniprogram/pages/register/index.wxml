@@ -1,0 +1,12 @@
+<!--miniprogram/pages/register/index.wxml-->
+<view>
+    <mp-cells title="请选择您的身份">
+        <mp-checkbox-group prop="radio" multi="{{false}}" bindchange="radioChange">
+            <mp-checkbox wx:for="{{radioItems}}" wx:key="value" label="{{item.name}}" value="{{item.value}}"
+                checked="{{item.checked}}"></mp-checkbox>
+        </mp-checkbox-group>
+    </mp-cells>
+    <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" bindtap="submitForm">下一步</button>
+    </view>
+</view>

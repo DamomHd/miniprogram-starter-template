@@ -1,0 +1,33 @@
+stages: # 定义阶段用于执行任务（定义了 build 和 deploy 两个阶段）
+  - build
+  - deploy
+
+build: # 定义 build 任务
+  stage: build # 该任务属于 build 阶段
+  script: # 执行下面脚本
+      - echo "build" # 可以在这里执行您项目的构建编译操作
+  #   - yarn install
+  #   - yarn build
+  # artifacts: # 制定任务成功后保存的文件(可以在 GitLab 上下载)
+  #   name: $CI_JOB_NAME
+  #   untracked: false # 是否添加所有 git untracked 的文件
+  #   paths: # 需要添加文件的位置
+  #     - dist
+  tags: # tags 制定运行在哪个 Runner 上
+      - mp_mini
+
+deploy: # 定义 deploy 任务
+  stage: deploy # 该任务属于 deploy 阶段
+  dependencies: # 该任务依赖 build 阶段的所有任务
+    - build
+  # variables: # 定义变量
+  #   VERSION: 1.0.0
+  #   DESCRIPTION: 测试CI
+  #   CLI: D:\systemSoft\wechatTools\cli.bat
+  script: # 执行下面脚本
+    # 下面是 小程序 上传代码的脚本，以 Windows 为例
+    # https://developers.weixin.qq.com/miniprogram/dev/devtools/cli.html#4-%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81
+    # - %CLI% -u %VERSION%@%cd% --upload-desc %DESCRIPTION%
+    - D:\systemSoft\wechatTools\cli.bat -u 1.0.5@D:\other-project\miniapp --upload-desc "test"
+  tags: # 这里需要在我们刚注册的 Runner 运行，和注册时的 tags 匹配
+    - mp_mini

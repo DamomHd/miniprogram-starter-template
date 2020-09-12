@@ -1,0 +1,25 @@
+<!--miniprogram/pages/login/index.wxml-->
+<view class="page">
+    <view class="weui-cells__title">手机号</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入手机号码" />
+            </view>
+        </view>
+    </view>
+    <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+        <mp-cells title="验证码" footer="">
+            <mp-cell prop="mobile" title="" ext-class="weui-cell_vcode">
+                <input bindinput="formInputChange" data-field="mobile" class="weui-input" placeholder="请输入验证码" />
+                <view slot="footer" class="weui-vcode-btn">获取验证码</view>
+            </mp-cell>
+        </mp-cells>
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="submitForm">登录</button>
+            <button class="weui-btn" type="default" bindtap="submitForm">新用户注册</button>
+        </view>
+    </mp-form>
+
+
+</view>

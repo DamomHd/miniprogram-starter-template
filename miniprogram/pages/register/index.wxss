@@ -1,0 +1,5 @@
+/* miniprogram/pages/register/index.wxss */
+.weui-cells__title{
+    color:#333;
+    line-height: 80rpx;
+}

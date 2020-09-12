@@ -1,0 +1,13 @@
+/* miniprogram/pages/register/next/index.wxss */
+.weui-cells__title{
+    color:#333;
+}
+.weui-agree__checkbox-icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.weui-agree__checkbox{
+    display: none;
+}

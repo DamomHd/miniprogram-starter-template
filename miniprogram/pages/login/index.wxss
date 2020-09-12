@@ -1,0 +1,8 @@
+/* miniprogram/pages/login/index.wxss */
+
+/* .page{
+    background-color: #fff;
+} */
+.weui-cells__title{
+    color:#333;
+}
